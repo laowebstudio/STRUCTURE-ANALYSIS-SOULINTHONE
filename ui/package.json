@@ -1,0 +1,30 @@
+{
+  "name": "@sapudom/ui",
+  "description": "SAPUDOM user interface",
+  "version": "1.0.0",
+  "author": "Mohamed Adil",
+  "license": "MIT",
+  "type": "module",
+  "module": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "build": "node -e \"console.log('No package build for @sapudom/ui')\"",
+    "build:wasm": "node -e \"console.log('No WASM build for @sapudom/ui')\"",
+    "deploy": "node -e \"console.log('No deploy for @sapudom/ui')\"",
+    "test": "node -e \"console.log('No tests for @sapudom/ui')\" --"
+  },
+  "dependencies": {
+    "@sapudom/components": "file:../components",
+    "vanjs-core": "^1.6.0",
+    "lit-html": "^3.3.2",
+    "three": "^0.183.2"
+  },
+  "devDependencies": {
+    "vite": "^8.0.8",
+    "@types/three": "^0.183.1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "private": true
+}

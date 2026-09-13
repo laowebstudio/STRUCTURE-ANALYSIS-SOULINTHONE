@@ -1,42 +1,46 @@
-# SAPUDOM Analysis Engine V1
+# SAPUDOM Analysis Platform V1
 
-Standalone clean-room MVP for SAPUDOM structural analysis.
+Production-oriented SAPUDOM fork for browser-based structural analysis and design.
 
-## V1 capabilities
-- 3D space-frame element, 6 DOF/node and 12 DOF/member
-- Linear elastic static analysis
-- Local/global coordinate transformation
-- Global stiffness assembly and boundary conditions
-- Nodal forces/moments
-- Uniform member loads in local x/y/z
-- Nodal displacements, support reactions, member local end forces N/Vy/Vz/T/My/Mz
-- JSON model import/export
-- Browser model/deformed-shape viewer
+## Current engine
 
-Recommended consistent units: N, m, Pa.
+- 3D geometry: points, frame lines, polygons
+- Frame and shell meshing
+- Linear C++/WebAssembly solver
+- Loads, supports, releases and local axes
+- Reactions, displacements and internal-force results
+- Concrete/steel/timber/shell design components inherited from the upstream engineering core
+- Three.js 3D viewer and result visualization
 
-## Run
-Because ES modules are used, serve the folder over a local HTTP server:
+## Important production note
+
+The nonlinear analysis client in the upstream project depended on a hosted service owned by the upstream project. SAPUDOM does not use that service. To enable nonlinear analysis, deploy a compatible SAPUDOM backend and set:
 
 ```bash
-npm run serve
+VITE_SAPUDOM_NL_SOLVE_ENDPOINT=https://your-domain.example/api/solve
 ```
 
-Then open http://localhost:8080
+Linear analysis remains local through the bundled C++/WASM solver.
 
-## Test
+## Run locally
+
+Requires Node.js 22+.
+
+```bash
+npm install
+npm run dev
+```
+
+## Test and production build
+
 ```bash
 npm test
+npm run build
+npm run preview
 ```
 
-## Next planned V1.x
-1. End releases and offsets
-2. Load cases and combinations
-3. P-Delta
-4. Modal/eigenvalue analysis
-5. Shell/plate slab FEM and mesh
-6. Result diagrams/contours
-7. RC design interface
+The production output is generated in `dist/` and can be deployed to GitHub Pages, Netlify, Vercel, or another static host. If deploying under a GitHub Pages repository subpath, configure Vite `base` before building.
 
-## Reference note
-The project was designed as a new SAPUDOM codebase. The architecture was informed by general FEM practice and review of the MIT-licensed Awatif project supplied by the user; Awatif source code is not bundled in this package.
+## Licensing / attribution
+
+SAPUDOM V1 is based substantially on Awatif by Mohamed Adil, licensed under MIT. See `LICENSE`, `SAPUDOM_NOTICE.md`, and `THIRD_PARTY_NOTICES.md`. These notices must remain with substantial copies of the software.

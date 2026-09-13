@@ -1,7 +1,28 @@
 {
-  "name":"sapudom-analysis-engine-v1",
-  "version":"1.0.0",
-  "private":true,
-  "type":"module",
-  "scripts":{"test":"node tests/engine.test.js","serve":"python3 -m http.server 8080"}
+  "name": "sapudom-analysis-platform",
+  "description": "SAPUDOM structural analysis and design platform",
+  "version": "1.0.0",
+  "private": true,
+  "license": "SEE LICENSE AND SAPUDOM_NOTICE.md",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview --open",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:wasm": "emcc ./components/analysis/l-solver/cpp/lSolver.cpp -o ./components/analysis/l-solver/cpp/built/lSolver.js -O3 -s ASSERTIONS -s ALLOW_MEMORY_GROWTH -s MODULARIZE -s EXPORT_ES6 -s EXPORTED_FUNCTIONS=_malloc,_free,_lSolve -s EXPORTED_RUNTIME_METHODS=HEAPF64,HEAPU32,HEAPU8,HEAP32"
+  },
+  "dependencies": {
+    "@sapudom/components": "file:./components",
+    "@sapudom/ui": "file:./ui",
+    "vanjs-core": "^1.6.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.8",
+    "vitest": "^4.1.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
