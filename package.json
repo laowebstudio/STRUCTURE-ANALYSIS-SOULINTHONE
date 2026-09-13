@@ -1,7 +1,7 @@
 {
   "name": "sapudom-analysis-platform",
   "description": "SAPUDOM structural analysis and design platform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "license": "SEE LICENSE AND SAPUDOM_NOTICE.md",
   "type": "module",

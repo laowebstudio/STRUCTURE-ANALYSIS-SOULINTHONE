@@ -44,3 +44,7 @@ The production output is generated in `dist/` and can be deployed to GitHub Page
 ## Licensing / attribution
 
 SAPUDOM V1 is based substantially on Awatif by Mohamed Adil, licensed under MIT. See `LICENSE`, `SAPUDOM_NOTICE.md`, and `THIRD_PARTY_NOTICES.md`. These notices must remain with substantial copies of the software.
+
+
+## GitHub Pages
+This V1.0.1 package includes an automatic GitHub Actions deployment workflow. See `GITHUB_PAGES_FIX.md`.
